@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wordfind_app/gradient_letter.dart';
 import 'package:wordfind_app/gradient_text.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -11,16 +12,39 @@ class WelcomePage extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
             image:DecorationImage(
-              image: AssetImage("assets/back1.png"),
-
+              image: AssetImage(
+                  "assets/back1.png"
+              ),
             )
           ),
-          child: Center(
-            child: GradientText(
-              'Game',31.6
+          child: Column(
+             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Padding(
+                  padding: EdgeInsets.only(
+                      top: 200
+                  )
+              ),
+              Expanded(
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: Center,
+                        children: [
+                          GradientLetter(
+                              "WORD"
+                          )
+                        ],
+                )
+              ],
+                    
+              )
+              ],
+                  )
+              )
+            ],
             ),
           ),
         )
-    );
   }
 }
