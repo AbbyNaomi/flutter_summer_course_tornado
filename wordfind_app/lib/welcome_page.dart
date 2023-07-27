@@ -68,7 +68,7 @@ class WelcomePage extends StatelessWidget {
                 ),
 
                 GradientText("GAME", 31.6),
-                Padding(padding: EdgeInsets.all(10)),
+                Padding(padding: EdgeInsets.all(1)),
                 Expanded(child: Image.asset("assets/iCodeGuy.png")),
               ],
             ),
