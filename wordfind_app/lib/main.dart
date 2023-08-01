@@ -7,7 +7,7 @@ void main() {
   runApp(MaterialApp(
     title: 'Word Find Game',
     theme: ThemeData(fontFamily: 'Ribeye'),
-    home: const TaskPage()
+    home: const StartPage()
   ));
 }
 
