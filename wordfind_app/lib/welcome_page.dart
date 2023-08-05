@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wordfind_app/gradient_letter.dart';
 import 'package:wordfind_app/gradient_text.dart';
+import 'package:wordfind_app/start_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -14,7 +15,7 @@ class WelcomePage extends StatelessWidget {
         height: 60,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             colors: [
@@ -24,7 +25,9 @@ class WelcomePage extends StatelessWidget {
           ),
         ),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const StartPage()));
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.transparent,
             elevation: 0,
@@ -32,7 +35,7 @@ class WelcomePage extends StatelessWidget {
               borderRadius: BorderRadius.circular(25),
             ),
           ),
-          child: Text(
+          child: const Text(
             'PLAY',
             style: TextStyle(
                 fontFamily: 'Nunito',
@@ -41,20 +44,20 @@ class WelcomePage extends StatelessWidget {
           ),
         ),
       ),
-      backgroundColor: Color(0xFFFBF5F2),
+      backgroundColor: const Color(0xFFFBF5F2),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
           image: AssetImage("assets/back1.png"),
         )),
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(padding: EdgeInsets.only(top: 200)),
+            const Padding(padding: EdgeInsets.only(top: 200)),
             Expanded(
                 child: Column(
               children: [
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GradientLetter("W"),
@@ -73,7 +76,7 @@ class WelcomePage extends StatelessWidget {
               ],
             ),
             ),
-            Padding(padding: EdgeInsets.only(bottom: 12.4)),
+            const Padding(padding: EdgeInsets.only(bottom: 12.4)),
             Expanded(
               child: GradientText("READY?", 25.0),
             )

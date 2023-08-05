@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wordfind_app/gradient_text.dart';
 import 'package:wordfind_app/input_field.dart';
 import 'package:wordfind_app/task_page.dart';
-import 'package:wordfind_app/user_model.dart';
+import 'package:wordfind_app/models/user_model.dart';
 
 User newUser = User("Yesui", 5);
 
@@ -84,7 +84,7 @@ class StartButton extends StatelessWidget {
       ),
       child: ElevatedButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> TaskPage()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> TaskPage(newUser)));
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,
