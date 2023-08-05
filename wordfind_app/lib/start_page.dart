@@ -34,7 +34,7 @@ class _StartPageState extends State<StartPage> {
         ),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
           image: AssetImage('assets/back2.png'),
           fit: BoxFit.cover,
@@ -78,7 +78,7 @@ class StartButton extends StatelessWidget {
             width: 310,
             height: 60,
             decoration: BoxDecoration(
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
                   colors: [Color(0xFFE86B02), Color(0xFFFA9541)],
@@ -95,7 +95,7 @@ class StartButton extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25)),
               ),
-              child: Text(
+              child: const Text(
                 'START',
                 style: TextStyle(
                   fontFamily: 'Nunito',

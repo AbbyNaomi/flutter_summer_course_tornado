@@ -34,7 +34,9 @@ class _TaskPageState extends State<TaskPage> {
       appBar: AppBar(
         leading: IconButton(
           icon: Image.asset('assets/arrow_back.png'),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
