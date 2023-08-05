@@ -8,13 +8,14 @@ import 'package:word_search_safety/word_search_safety.dart';
 class TaskWidgetSolution extends StatefulWidget {
   final Size size;
   final List<TaskModel> listQuestions;
+
   const TaskWidgetSolution(this.size, this.listQuestions, {super.key});
 
   @override
-  _TaskWidgetState createState() => _TaskWidgetState();
+  TaskWidgetStateSolution createState() => TaskWidgetStateSolution();
 }
 
-class _TaskWidgetState extends State<TaskWidgetSolution> {
+class TaskWidgetStateSolution extends State<TaskWidgetSolution> {
   late Size size;
   late List<TaskModel> listQuestions;
   int indexQues = 0; // current index question
@@ -164,7 +165,7 @@ class _TaskWidgetState extends State<TaskWidgetSolution> {
                   topLeft: Radius.circular(30), topRight: Radius.circular(30)),
             ),
             padding:
-            const EdgeInsets.only(left: 30, right: 30, top: 30, bottom: 40),
+                const EdgeInsets.only(left: 30, right: 30, top: 30, bottom: 40),
             alignment: Alignment.center,
             child: Column(
               children: [
@@ -266,7 +267,8 @@ class _TaskWidgetState extends State<TaskWidgetSolution> {
     final WSNewPuzzle newPuzzle = wordSearch.newPuzzle(wl, ws);
 
     if (newPuzzle.errors!.isEmpty) {
-      currentQues.arrayButtons = newPuzzle.puzzle!.expand((list) => list).toList();
+      currentQues.arrayButtons =
+          newPuzzle.puzzle!.expand((list) => list).toList();
       currentQues.arrayButtons.shuffle();
 
       bool isDone = currentQues.isDone;
@@ -326,12 +328,12 @@ class _TaskWidgetState extends State<TaskWidgetSolution> {
     TaskModel currentQues = listQuestions[indexQues];
 
     int currentIndexEmpty =
-    currentQues.puzzles.indexWhere((puzzle) => puzzle.currentValue == null);
+        currentQues.puzzles.indexWhere((puzzle) => puzzle.currentValue == null);
 
     if (currentIndexEmpty >= 0) {
       currentQues.puzzles[currentIndexEmpty].currentIndex = index;
       currentQues.puzzles[currentIndexEmpty].currentValue =
-      currentQues.arrayButtons[index];
+          currentQues.arrayButtons[index];
 
       if (currentQues.fieldCompleteCorrect()) {
         currentQues.isDone = true;
@@ -347,4 +349,3 @@ class _TaskWidgetState extends State<TaskWidgetSolution> {
     }
   }
 }
-

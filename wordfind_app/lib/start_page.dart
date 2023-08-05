@@ -4,7 +4,7 @@ import 'package:wordfind_app/input_field.dart';
 import 'package:wordfind_app/task_page.dart';
 import 'package:wordfind_app/models/user_model.dart';
 
-User newUser = User("Yesui", 5);
+User newUser = User("Guest", 0);
 
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
@@ -54,54 +54,56 @@ class _StartPageState extends State<StartPage> {
           ),
         ),
       ),
-      floatingActionButton: StartButton(),
+      floatingActionButton: StartButton(newUser),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
-  void _createUser (String userName){
+
+  void _createUser(String userName) {
     setState(() {
-      newUser.userName=userName;
+      newUser.userName = userName;
     });
   }
 }
 
 class StartButton extends StatelessWidget {
-  const StartButton({super.key});
+  const StartButton(User userName, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 350),
-      width: 310,
-      height: 60,
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [Color(0xFFE86B02), Color(0xFFFA9541)],
-          ),
-          borderRadius: BorderRadius.circular(25)
-      ),
-      child: ElevatedButton(
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> TaskPage(newUser)));
-        },
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(25)
-          ),
-        ),
-        child: Text(
-          'START',
-          style: TextStyle(
-            fontFamily: 'Nunito',
-            fontSize: 24,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-      ),
-    );
+    return newUser.userName == 'Guest'
+        ? Container()
+        : Container(
+            margin: EdgeInsets.only(bottom: 350),
+            width: 310,
+            height: 60,
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: [Color(0xFFE86B02), Color(0xFFFA9541)],
+                ),
+                borderRadius: BorderRadius.circular(25)),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => TaskPage(newUser)));
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25)),
+              ),
+              child: Text(
+                'START',
+                style: TextStyle(
+                  fontFamily: 'Nunito',
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          );
   }
 }

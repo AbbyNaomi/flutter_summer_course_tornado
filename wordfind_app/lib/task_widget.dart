@@ -12,10 +12,10 @@ class TaskWidget extends StatefulWidget {
   final List<TaskModel> listQuestions;
 
   @override
-  State<TaskWidget> createState() => _TaskWidgetState();
+  State<TaskWidget> createState() => TaskWidgetState();
 }
 
-class _TaskWidgetState extends State<TaskWidget> {
+class TaskWidgetState extends State<TaskWidget> {
   late Size size;
   late List<TaskModel> listQuestions;
   int currentQuestionIndex = 0;
