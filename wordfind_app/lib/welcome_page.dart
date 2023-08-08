@@ -10,7 +10,7 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: Container(
-        margin: EdgeInsets.only(bottom: 193),
+        margin: const EdgeInsets.only(bottom: 193),
         width: 310,
         height: 60,
         decoration: BoxDecoration(
@@ -70,14 +70,14 @@ class WelcomePage extends StatelessWidget {
                   ],
                 ),
 
-                GradientText("GAME", 31.6),
-                Padding(padding: EdgeInsets.all(1)),
+                const GradientText("GAME", 31.6),
+                const Padding(padding: EdgeInsets.all(1)),
                 Expanded(child: Image.asset("assets/iCodeGuy.png")),
               ],
             ),
             ),
-            const Padding(padding: EdgeInsets.only(bottom: 12.4)),
-            Expanded(
+             const Padding(padding: EdgeInsets.only(bottom: 12.4)),
+            const Expanded(
               child: GradientText("READY?", 25.0),
             )
           ],

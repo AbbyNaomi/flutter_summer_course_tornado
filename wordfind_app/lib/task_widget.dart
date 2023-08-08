@@ -1,9 +1,7 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'models/char_model.dart';
 import 'models/task_model.dart';
-import 'package:word_search_safety/word_search_safety.dart';
 
 class TaskWidget extends StatefulWidget {
   const TaskWidget(this.size, this.listQuestions, {super.key});
@@ -89,7 +87,7 @@ class TaskWidgetState extends State<TaskWidget> {
             alignment: Alignment.center,
             child: Text(
               currentQuestion.question,
-              style: TextStyle(
+              style: const TextStyle(
                   fontSize: 25,
                   color: Color(0xFFE86B02),
                   fontWeight: FontWeight.bold),

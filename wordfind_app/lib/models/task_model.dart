@@ -24,6 +24,7 @@ class TaskModel {
         puzzles.where((puzzle) => puzzle.currentValue == null).isEmpty;
     if (complete) {
       isFull = false;
+      return complete;
     } else {
       isFull = true;
     }

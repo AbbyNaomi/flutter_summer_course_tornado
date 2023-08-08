@@ -43,7 +43,7 @@ class _TaskPageState extends State<TaskPage> {
         centerTitle: true,
         title: Text(
           user.userName,
-          style: TextStyle(fontSize: 24, color: Color(0xFFE86B02)),
+          style: const TextStyle(fontSize: 24, color: Color(0xFFE86B02)),
         ),
       ),
       body: SafeArea(

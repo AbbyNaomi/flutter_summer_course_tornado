@@ -17,7 +17,7 @@ class _StartPageState extends State<StartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFBF5F2),
+      backgroundColor: const Color(0xFFFBF5F2),
       appBar: AppBar(
         leading: IconButton(
           icon: Image.asset("assets/arrow_back.png"),
