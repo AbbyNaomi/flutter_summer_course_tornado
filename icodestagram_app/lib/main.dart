@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:icodestagram_app/welcome_page.dart';
 
 void main() {
-  runApp(const MaterialApp());
+  runApp(MaterialApp(
+    home: WelcomePage(),
+  ));
 }
 
