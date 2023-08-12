@@ -51,7 +51,6 @@ class WelcomePage extends StatelessWidget {
           image: AssetImage("assets/back1.png"),
         )),
         child: Column(
-          //mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Padding(padding: EdgeInsets.only(top: 200)),
             Expanded(
