@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "140756241156",
+    "project_id": "lesson-20-tornado-yesui",
+    "storage_bucket": "lesson-20-tornado-yesui.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140756241156:android:cf2d886c64b489c59b5e51",
+        "android_client_info": {
+          "package_name": "com.example.lesson_20_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140756241156-bbgufqfmlhk3o8c5v18nokdnuu5b1gl2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcmlA76QyGfRWMGI_rqhuxPan3eBgkj78"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140756241156-bbgufqfmlhk3o8c5v18nokdnuu5b1gl2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
