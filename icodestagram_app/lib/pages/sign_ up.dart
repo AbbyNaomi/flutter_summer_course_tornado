@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icodestagram_app/pages/login.dart';
 
 import '../input_field.dart';
 
@@ -13,7 +14,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFF000000),
       body: SafeArea(
         child: Container(
@@ -34,22 +35,16 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
               ),
-              Padding(padding: EdgeInsets.only(top: 52),),
-              InputField(
-                   hintText: "Утасны дугаар"
+              Padding(
+                padding: EdgeInsets.only(top: 52),
               ),
+              InputField(hintText: "Утасны дугаар"),
               Padding(padding: EdgeInsets.only(top: 14)),
-              InputField(
-                  hintText: "Хэрэглэгчийн нэр"
-              ),
+              InputField(hintText: "Хэрэглэгчийн нэр"),
               Padding(padding: EdgeInsets.only(top: 14)),
-              InputField(
-                   hintText: "Нууц үг"
-              ),
+              InputField(hintText: "Нууц үг"),
               Padding(padding: EdgeInsets.only(top: 14)),
-              InputField(
-                  hintText: "Нууц үг давтах"
-              ),
+              InputField(hintText: "Нууц үг давтах"),
               Padding(padding: EdgeInsets.only(top: 48)),
               SignUpButton(),
               Padding(padding: EdgeInsets.only(top: 26)),
@@ -82,15 +77,17 @@ class _SignUpState extends State<SignUp> {
                         color: Color(0x99FFFFFF),
                       ),
                     ),
-                    Text(
-                      '  Нэвтрэх',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontFamily: 'Rubik',
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFFE86B02)
-                      ),
-                    ),
+                    // TextButton(
+                    //   onPressed: () {},
+                    //   child: Text(
+                    //     '  Нэвтрэх',
+                    //     style: TextStyle(
+                    //         fontSize: 15,
+                    //         fontFamily: 'Rubik',
+                    //         fontWeight: FontWeight.w400,
+                    //         color: Color(0xFFE86B02)),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -101,6 +98,7 @@ class _SignUpState extends State<SignUp> {
     );
   }
 }
+
 class SignUpButton extends StatelessWidget {
   const SignUpButton({super.key});
 
@@ -121,8 +119,8 @@ class SignUpButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         ),
         child: Text(
           'Бүртгүүлэх',
