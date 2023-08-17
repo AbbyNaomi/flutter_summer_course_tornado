@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "50947519249",
+    "project_id": "icodegram-yesui",
+    "storage_bucket": "icodegram-yesui.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50947519249:android:db88a3ff69174ca37292b0",
+        "android_client_info": {
+          "package_name": "mn.yesui.icodestagram_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "50947519249-aad8q4s737aj0g3kaabmmdufa4othg31.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1YCgqkCkV-sPM94ae500gtvXJjq90Xas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "50947519249-aad8q4s737aj0g3kaabmmdufa4othg31.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

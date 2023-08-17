@@ -1,4 +1,4 @@
-package com.example.icodestagram_app
+package mn.yesui.icodestagram_app
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
 
-class InputField extends StatefulWidget {
+class InputField extends StatelessWidget {
   final String hintText;
-  const InputField({super.key, required  this.hintText});
-
-  @override
-  State<InputField> createState() => _InputFieldState();
-}
-
-class _InputFieldState extends State<InputField> {
+  final bool isPassword;
+  final TextEditingController editingController;
+  final TextInputType textInputType;
+  const InputField({super.key, required  this.hintText, required this.isPassword, required this.editingController, required this.textInputType});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 343,
       height: 45,
-      child: Column(
-        children: [
-          Expanded(
-            child: TextField(
+      child:
+         TextField(
+             controller: editingController,
               maxLines: 1,
               style: const TextStyle(
                 color: Color(0xFFA0A0A0),
@@ -32,7 +28,7 @@ class _InputFieldState extends State<InputField> {
                 ),
                 filled: true,
                 fillColor: Colors.black,
-                hintText: '${widget.hintText}',
+                hintText: '$hintText',
                 hintStyle: const TextStyle(color: Color(0xFFA0A0A0)),
                 suffixIcon: IconButton(
                   onPressed: () {
@@ -41,12 +37,13 @@ class _InputFieldState extends State<InputField> {
                     Icons.clear,
                   ),
                 ),
+
               ),
+              obscureText: isPassword,
+              keyboardType: textInputType,
 
             ),
-          ),
-        ],
-      ),
+
     );
   }
 }
