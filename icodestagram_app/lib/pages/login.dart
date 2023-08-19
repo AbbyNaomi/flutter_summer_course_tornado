@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:icodestagram_app/pages/sign_%20up.dart';
 import 'package:icodestagram_app/models/user_model.dart';
 import '../components/input_field.dart';
+import 'home_screen.dart';
 
 User newUser = User('Guest', 0);
 
@@ -22,7 +23,7 @@ class _LoginState extends State<Login> {
       body: SafeArea(
         child: Container(
           alignment: Alignment.center,
-          padding: EdgeInsets.only(top: 160),
+          padding: EdgeInsets.only(top: 130),
           child: Column(
             children: [
               const SizedBox(
@@ -124,7 +125,9 @@ class StartButton extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(1)),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,
           elevation: 0,
