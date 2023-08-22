@@ -62,7 +62,6 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 children: [
                   Padding(padding: EdgeInsets.only(right: 45)),
-                  Padding(padding: EdgeInsets.only(bottom: 150)),
                   Column(
                     children: [
                       SvgPicture.asset(
@@ -89,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     'assets/user.svg',
                     width: 23.4,
                     height: 23.2,
-                  )
+                  ),
                 ],
               ),
             ],

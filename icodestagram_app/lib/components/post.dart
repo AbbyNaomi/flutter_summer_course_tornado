@@ -12,7 +12,7 @@ class Post extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 3),
         child: SizedBox(
           width: double.infinity,
-          height: MediaQuery.of(context).size.height * 1.35,
+          height: MediaQuery.of(context).size.height * 1.2,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -47,7 +47,6 @@ class Post extends StatelessWidget {
                   ),
                 ],
               ),
-              // Padding(padding: EdgeInsets.only(top: 10)),
               Expanded(
                 child: Container(
                   alignment: AlignmentDirectional.center,
@@ -61,7 +60,6 @@ class Post extends StatelessWidget {
                   ),
                 ),
               ),
-              const Padding(padding: EdgeInsets.only(top: 12)),
               Row(
                 children: [
                   Padding(padding: EdgeInsets.only(right: 16)),
