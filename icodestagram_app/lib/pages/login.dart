@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:icodestagram_app/pages/sign_%20up.dart';
+import 'package:icodestagram_app/layouts/screen_layout.dart';
 import 'package:icodestagram_app/models/user_model.dart';
+
 import '../components/input_field.dart';
-import 'home_screen.dart';
 
 User newUser = User('Guest', 0);
 
@@ -16,6 +16,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,12 +40,21 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.only(top: 52),
               ),
-              InputField(hintText: "Хэрэглэгчийн и-мэйл", isPassword:false , editingController: _emailController, textInputType: TextInputType.emailAddress),
+              InputField(
+                  hintText: "Хэрэглэгчийн и-мэйл",
+                  isPassword: false,
+                  editingController: _emailController,
+                  textInputType: TextInputType.emailAddress),
               Padding(padding: EdgeInsets.only(top: 14)),
-              InputField(hintText: "Нууц үг", isPassword: true, editingController: _passwordController, textInputType: TextInputType.text,),
+              InputField(
+                hintText: "Нууц үг",
+                isPassword: true,
+                editingController: _passwordController,
+                textInputType: TextInputType.text,
+              ),
               Padding(padding: EdgeInsets.only(top: 48)),
               StartButton(newUser),
               Padding(padding: EdgeInsets.only(top: 26)),
@@ -76,19 +86,20 @@ class _LoginState extends State<Login> {
                         color: Color(0x99FFFFFF),
                       ),
                     ),
-
                     TextButton(
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUp()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ScreenLayout()));
                       },
                       child: Text(
                         '  Бүртгүүлэх',
-                          style: TextStyle(
+                        style: TextStyle(
                             fontSize: 15,
                             fontFamily: 'Rubik',
                             fontWeight: FontWeight.w400,
-                            color: Color(0xFFE86B02)
-                          ),
+                            color: Color(0xFFE86B02)),
                       ),
                     ),
                   ],
@@ -126,7 +137,8 @@ class StartButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(1)),
       child: ElevatedButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const ScreenLayout()));
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,

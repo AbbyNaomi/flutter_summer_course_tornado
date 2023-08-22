@@ -44,14 +44,17 @@ class _HomeScreenState extends State<HomeScreen> {
           'HomeScreen',
         ),
       ),
-      body: ListView.builder(scrollDirection: Axis.vertical , itemCount: names.length, itemBuilder: (BuildContext context, int index) {
-        return Container(
-          height: 50,
-          width: 50,
-          color: Colors.yellow,
-          child: Text(names[index]),
-        );
-      }),
+      body: ListView.builder(
+          scrollDirection: Axis.vertical,
+          itemCount: names.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Container(
+              height: 50,
+              width: 50,
+              color: Colors.yellow,
+              child: Text(names[index]),
+            );
+          }),
     );
   }
 }
