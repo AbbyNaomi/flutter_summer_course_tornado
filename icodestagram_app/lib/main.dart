@@ -11,6 +11,6 @@ void main() async {
   runApp( MaterialApp(
     theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: Color.fromRGBO(0, 0, 0, 1),
     textTheme: Typography().white.apply(fontFamily: 'Rubik')),
-    home: Login(),
+    home:HomeScreen(),
   ));
 }

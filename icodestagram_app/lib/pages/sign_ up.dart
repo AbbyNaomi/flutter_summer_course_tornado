@@ -15,8 +15,7 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _validatePasswordController =
-      TextEditingController();
+  final TextEditingController _validatePasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +44,7 @@ class _SignUpState extends State<SignUp> {
                 padding: EdgeInsets.only(top: 52),
               ),
               InputField(
-                hintText: "Хэрэглэгчийн и-мэйл",
+                hintText: "Хэрэглэгчийн И-мэйл",
                 isPassword: false,
                 editingController: _emailController,
                 textInputType: TextInputType.emailAddress,

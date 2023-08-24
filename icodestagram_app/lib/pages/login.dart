@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:icodestagram_app/layouts/screen_layout.dart';
 import 'package:icodestagram_app/models/user_model.dart';
+import 'package:icodestagram_app/pages/home_screen.dart';
+import 'package:icodestagram_app/pages/sign_%20up.dart';
 
 import '../components/input_field.dart';
 
@@ -44,7 +46,7 @@ class _LoginState extends State<Login> {
                 padding: EdgeInsets.only(top: 52),
               ),
               InputField(
-                  hintText: "Хэрэглэгчийн и-мэйл",
+                  hintText: "Хэрэглэгчийн И-мэйл",
                   isPassword: false,
                   editingController: _emailController,
                   textInputType: TextInputType.emailAddress),
@@ -91,7 +93,7 @@ class _LoginState extends State<Login> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const ScreenLayout()));
+                                builder: (context) => const SignUp()));
                       },
                       child: Text(
                         '  Бүртгүүлэх',
@@ -138,7 +140,7 @@ class StartButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const ScreenLayout()));
+              MaterialPageRoute(builder: (context) => const HomeScreen()));
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,

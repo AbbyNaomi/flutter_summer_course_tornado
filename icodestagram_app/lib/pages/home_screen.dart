@@ -13,93 +13,118 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  List <Widget> stories = [
+    Padding(padding: EdgeInsets.only(right: 7)),
+    AddStoryButton(),
+    Padding(padding: EdgeInsets.only(right: 7)),
+    WatchStoryButton(hintext: 'Төгөлдөр'),
+    Padding(padding: EdgeInsets.only(right: 7)),
+    WatchStoryButton(hintext: 'Сарнай'),
+    Padding(padding: EdgeInsets.only(right: 7)),
+    WatchStoryButton(hintext: 'Ханхүү'),
+    Padding(padding: EdgeInsets.only(right: 7)),
+    WatchStoryButton(hintext: 'Цэцэгээ'),
+    Padding(padding: EdgeInsets.only(right: 7)),
+    WatchStoryButton(hintext: 'Сараа'),
+  ];
+  List <Widget> posts =[
+    Post(hintText: '  Төгөлдөр', profile: 'assets/profile.png', photo: 'assets/photo.png',),
+    Post(hintText: '  Сарнай', profile: 'assets/profile2.png', photo: 'assets/postphoto2.png',),
+    Post(hintText: '  Ханхүү', profile: 'assets/profile.png', photo: 'assets/photo.png',),
+
+  ];
+// ScreenLayout()
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF000000),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            height: 15000,
-            padding: EdgeInsets.only(top: 14, right: 16),
-            child: Column(
-              children: [
-                const Row(
-                  children: [
-                    Padding(padding: EdgeInsets.only(right: 16)),
-                    SizedBox(
-                      width: 107,
-                      height: 32,
-                      child: Text(
-                        'iCodegram',
-                        style: TextStyle(
-                          fontSize: 25.64,
-                          fontFamily: 'Lobster',
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xFFFFFFFF),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const Padding(padding: EdgeInsets.only(top: 8)),
-                const Row(
-                  children: [
-                    Padding(padding: EdgeInsets.only(right: 16, top: 5)),
-                    AddStoryButton(),
-                    Padding(padding: EdgeInsets.only(right: 12)),
-                    WatchStoryButton(
-                      hintext: 'Төгөлдөр',
-                    ),
-                    Padding(padding: EdgeInsets.only(right: 12)),
-                    WatchStoryButton(
-                      hintext: 'Сарнай',
-                    ),
-                    Padding(padding: EdgeInsets.only(right: 12)),
-                    WatchStoryButton(
-                      hintext: 'Ханхүү',
-                    ),
-                  ],
-                ),
-                Post(),
-                ScreenLayout(),
-                // Row(
-                //   children: [
-                //     Padding(padding: EdgeInsets.only(right: 45)),
-                //     Column(
-                //       children: [
-                //         SvgPicture.asset(
-                //           'assets/Home.svg',
-                //           width: 23.4,
-                //           height: 23.2,
-                //         ),
-                //         Padding(padding: EdgeInsets.only(top: 10)),
-                //         SvgPicture.asset(
-                //           'assets/dot.svg',
-                //           width: 8,
-                //           height: 8,
-                //         ),
-                //       ],
-                //     ),
-                //     Padding(padding: EdgeInsets.only(right: 120)),
-                //     SvgPicture.asset(
-                //       'assets/addIcon.svg',
-                //       width: 23.4,
-                //       height: 23.2,
-                //     ),
-                //     Padding(padding: EdgeInsets.only(right: 120)),
-                //     SvgPicture.asset(
-                //       'assets/user.svg',
-                //       width: 23.4,
-                //       height: 23.2,
-                //     ),
-                //   ],
-                // ),
-              ],
-            ),
-          ),
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverList(delegate: SliverChildListDelegate([
+              SizedBox(
+
+                height: 100,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                    itemCount: stories.length,
+                    itemBuilder: (context, index) {
+                    return stories[index];
+                })
+              ),
+               ListView.separated(
+                 separatorBuilder: (context, index) {
+                   return const SizedBox(
+                     height: 10,
+                   );
+                 },
+                   shrinkWrap: true,
+                   physics: const ScrollPhysics(),
+                    scrollDirection: Axis.vertical,
+                    itemCount: posts.length,
+                    itemBuilder: (context, index) {
+                      return posts[index];
+
+                    }),
+
+            ])),
+
+          ],
         ),
       ),
     );
   }
 }
+
+
+// Container(
+// height: 15000,
+// child: const Column(
+// children: [
+// Row(
+// children: [
+// Padding(padding: EdgeInsets.only(right: 16)),
+// SizedBox(
+// width: 107,
+// height: 32,
+// child: Text(
+// 'iCodegram',
+// style: TextStyle(
+// fontSize: 25.64,
+// fontFamily: 'Lobster',
+// fontWeight: FontWeight.w400,
+// color: Color(0xFFFFFFFF),
+// ),
+// ),
+// ),
+// ],
+// ),
+// Padding(padding: EdgeInsets.only(top: 8)),
+// Row(
+// children: [
+// Padding(padding: EdgeInsets.only(right: 16, top: 5)),
+// AddStoryButton(),
+// Padding(padding: EdgeInsets.only(right: 12)),
+// WatchStoryButton(
+// hintext: 'Төгөлдөр',
+// ),
+// Padding(padding: EdgeInsets.only(right: 12)),
+// WatchStoryButton(
+// hintext: 'Сарнай',
+// ),
+// Padding(padding: EdgeInsets.only(right: 12)),
+// WatchStoryButton(
+// hintext: 'Ханхүү',
+// ),
+// ],
+// ),
+// Post(hintText: '  Төгөлдөр', profile: 'assets/profile.png', photo: 'assets/photo.png',),
+// Post(hintText: '  Сарнай', profile: 'assets/profile2.png', photo: 'assets/postphoto2.png',),
+// Post(hintText: '  Ханхүү', profile: 'assets/profile.png', photo: 'assets/photo.png',),
+//
+// ScreenLayout(),
+// ],
+// ),
+// ),

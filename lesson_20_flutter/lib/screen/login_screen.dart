@@ -37,14 +37,14 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 32),
+          padding: const EdgeInsets.symmetric(horizontal: 32),
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(padding: EdgeInsets.only(top: 10)),
+              const Padding(padding: EdgeInsets.only(top: 10)),
               // Flexible(flex: 2,child: Container()),
-              SizedBox(
+              const SizedBox(
                 width: 250,
                 height: 70,
                 child: Text(
@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 64,
               ),
               TextFieldInput(
@@ -65,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   isPassword: false,
                   editingController: _emailController,
                   textInputType: TextInputType.emailAddress),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               TextFieldInput(
@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   isPassword: true,
                   editingController: _passwordController,
                   textInputType: TextInputType.text),
-              SizedBox(
+              const SizedBox(
                 height: 64,
               ),
               InkWell(
@@ -84,24 +84,24 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: double.infinity,
                   alignment: Alignment.center,
                   padding: EdgeInsets.symmetric(vertical: 12),
-                  decoration: ShapeDecoration(
+                  decoration: const ShapeDecoration(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(4)),
                     ),
                     color: Colors.blue,
                   ),
                   child: _isLouding
-                      ? Center(
+                      ? const Center(
                           child: CircularProgressIndicator(
                             color: Colors.white,
                           ),
                         )
-                      : Center(
+                      : const Center(
                           child: Text('Нэвтрэх'),
                         ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               Flexible(flex: 2, child: Container()),
