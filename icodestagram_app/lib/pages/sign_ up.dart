@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:icodestagram_app/pages/login.dart';
 import 'package:icodestagram_app/resources/auth_methods.dart';
@@ -16,6 +18,7 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _validatePasswordController = TextEditingController();
+  Uint8List? _image;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,7 +87,7 @@ class _SignUpState extends State<SignUp> {
                     AuthMethods().signUpUser(
                         email: _emailController.text,
                         password: _passwordController.text,
-                        username: _usernameController.text);
+                        username: _usernameController.text, file: _image);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,

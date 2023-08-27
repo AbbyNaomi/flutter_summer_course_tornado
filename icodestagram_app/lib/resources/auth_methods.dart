@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -8,7 +10,9 @@ class AuthMethods {
   Future<String> signUpUser(
       {required String email,
         required String password,
-        required String username}) async {
+        required String username,
+      required Uint8List? file,
+      }) async {
     String result = 'Some error occurred';
     try {
       if (email.isNotEmpty || password.isNotEmpty || username.isNotEmpty) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icodestagram_app/layouts/screen_layout.dart';
 import 'package:icodestagram_app/pages/home_screen.dart';
 import 'package:icodestagram_app/pages/login.dart';
 import 'package:icodestagram_app/pages/sign_%20up.dart';
@@ -11,6 +12,6 @@ void main() async {
   runApp( MaterialApp(
     theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: Color.fromRGBO(0, 0, 0, 1),
     textTheme: Typography().white.apply(fontFamily: 'Rubik')),
-    home:HomeScreen(),
+    home:ScreenLayout(),
   ));
 }

@@ -13,8 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-  List <Widget> stories = [
+  List<Widget> stories = [
     Padding(padding: EdgeInsets.only(right: 7)),
     AddStoryButton(),
     Padding(padding: EdgeInsets.only(right: 7)),
@@ -28,56 +27,57 @@ class _HomeScreenState extends State<HomeScreen> {
     Padding(padding: EdgeInsets.only(right: 7)),
     WatchStoryButton(hintext: 'Сараа'),
   ];
-  List <Widget> posts =[
-    Post(hintText: '  Төгөлдөр', profile: 'assets/profile.png', photo: 'assets/photo.png',),
-    Post(hintText: '  Сарнай', profile: 'assets/profile2.png', photo: 'assets/postphoto2.png',),
-    Post(hintText: '  Ханхүү', profile: 'assets/profile.png', photo: 'assets/photo.png',),
-
+  List<Widget> posts = [
+    Post(
+      hintText: '  Төгөлдөр',
+      profile: 'assets/profile.png',
+      photo: 'assets/photo.png',
+    ),
+    Post(
+      hintText: '  Сарнай',
+      profile: 'assets/profile2.png',
+      photo: 'assets/postphoto2.png',
+    ),
+    Post(
+      hintText: '  Ханхүү',
+      profile: 'assets/profile.png',
+      photo: 'assets/photo.png',
+    ),
   ];
 // ScreenLayout()
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFF000000),
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: <Widget>[
-            SliverList(delegate: SliverChildListDelegate([
-              SizedBox(
-
-                height: 100,
-                child: ListView.builder(
+    return CustomScrollView(
+      slivers: <Widget>[
+        SliverList(
+            delegate: SliverChildListDelegate([
+          SizedBox(
+              height: 100,
+              child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                    itemCount: stories.length,
-                    itemBuilder: (context, index) {
+                  itemCount: stories.length,
+                  itemBuilder: (context, index) {
                     return stories[index];
-                })
-              ),
-               ListView.separated(
-                 separatorBuilder: (context, index) {
-                   return const SizedBox(
-                     height: 10,
-                   );
-                 },
-                   shrinkWrap: true,
-                   physics: const ScrollPhysics(),
-                    scrollDirection: Axis.vertical,
-                    itemCount: posts.length,
-                    itemBuilder: (context, index) {
-                      return posts[index];
-
-                    }),
-
-            ])),
-
-          ],
-        ),
-      ),
+                  })),
+          ListView.separated(
+              separatorBuilder: (context, index) {
+                return const SizedBox(
+                  height: 10,
+                );
+              },
+              shrinkWrap: true,
+              physics: const ScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              itemCount: posts.length,
+              itemBuilder: (context, index) {
+                return posts[index];
+              }),
+        ])),
+      ],
     );
   }
 }
-
 
 // Container(
 // height: 15000,
