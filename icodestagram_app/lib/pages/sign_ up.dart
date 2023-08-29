@@ -3,8 +3,10 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:icodestagram_app/pages/login.dart';
 import 'package:icodestagram_app/resources/auth_methods.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../components/input_field.dart';
+import '../utils/utils.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -17,8 +19,15 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _validatePasswordController = TextEditingController();
+  final TextEditingController _validatePasswordController =
+      TextEditingController();
   Uint8List? _image;
+  selectImage() async {
+    Uint8List image = await pickImage(ImageSource.gallery);
+    setState(() {
+      _image = image;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +53,33 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 52),
+                padding: EdgeInsets.only(top: 10),
+              ),
+              Stack(
+                children: <Widget>[
+                  _image != null
+                      ? CircleAvatar(
+                          radius: 64,
+                          backgroundImage: MemoryImage(_image!),
+                        )
+                      : CircleAvatar(
+                          radius: 64,
+                          backgroundImage: NetworkImage(
+                              'https://toppng.com/uploads/preview/instagram-default-profile-picture-11562973083brycehrmyv.png'
+                          ),
+                        ),
+                  Positioned(
+                      bottom: 10,
+                      left: 80,
+                      child: IconButton(
+                        icon: Icon(Icons.add_a_photo),
+                        onPressed:
+                          selectImage,
+                      )),
+                ],
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 10),
               ),
               InputField(
                 hintText: "Хэрэглэгчийн И-мэйл",
@@ -87,7 +122,8 @@ class _SignUpState extends State<SignUp> {
                     AuthMethods().signUpUser(
                         email: _emailController.text,
                         password: _passwordController.text,
-                        username: _usernameController.text, file: _image);
+                        username: _usernameController.text,
+                        file: _image);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
@@ -157,4 +193,6 @@ class _SignUpState extends State<SignUp> {
       ),
     );
   }
+
+
 }

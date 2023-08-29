@@ -48,33 +48,37 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: <Widget>[
-        SliverList(
-            delegate: SliverChildListDelegate([
-          SizedBox(
-              height: 100,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: stories.length,
+    return Scaffold(
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverList(
+                delegate: SliverChildListDelegate([
+              SizedBox(
+                  height: 100,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: stories.length,
+                      itemBuilder: (context, index) {
+                        return stories[index];
+                      })),
+              ListView.separated(
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(
+                      height: 10,
+                    );
+                  },
+                  shrinkWrap: true,
+                  physics: const ScrollPhysics(),
+                  scrollDirection: Axis.vertical,
+                  itemCount: posts.length,
                   itemBuilder: (context, index) {
-                    return stories[index];
-                  })),
-          ListView.separated(
-              separatorBuilder: (context, index) {
-                return const SizedBox(
-                  height: 10,
-                );
-              },
-              shrinkWrap: true,
-              physics: const ScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              itemCount: posts.length,
-              itemBuilder: (context, index) {
-                return posts[index];
-              }),
-        ])),
-      ],
+                    return posts[index];
+                  }),
+            ])),
+          ],
+        ),
+      ),
     );
   }
 }

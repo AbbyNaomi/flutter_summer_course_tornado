@@ -55,13 +55,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         backgroundImage:
                             NetworkImage('https://toppng.com/uploads/preview/instagram-default-profile-picture-11562973083brycehrmyv.png'),
                       ),
-                Positioned(bottom: 10,
-                    left: 80,
-                    child: IconButton(
-                      icon: Icon(Icons.add_a_photo),
-                      onPressed: selectImage(),
-                    ))
+
               ]),
+              Positioned(bottom: 10,
+                  left: 80,
+                  child: IconButton(
+                    icon: Icon(Icons.add_a_photo),
+                    onPressed: selectImage(),
+                  )),
               Flexible(flex: 2, child: Container()),
               SizedBox(
                 height: 64,
