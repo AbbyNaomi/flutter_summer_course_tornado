@@ -30,6 +30,13 @@ class _ScreenLayoutState extends State<ScreenLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      appBar: (_page == 1)
+      ? AppBar(
+        leading: IconButton(onPressed: () => pageController.jumpToPage(0),icon: Icon(Icons.arrow_back_ios),),
+        title: Center(child: Text("Зураг оруулах"),),
+        backgroundColor: Color.fromRGBO(0, 0, 0, 1),
+      ) : null,
       backgroundColor: Colors.black,
       body: SafeArea(
         child: PageView(
@@ -42,6 +49,7 @@ class _ScreenLayoutState extends State<ScreenLayout> {
             ProfileScreen(),
           ],
         ),
+
       ),
       bottomNavigationBar: CupertinoTabBar(
         items: [
@@ -87,6 +95,7 @@ class _ScreenLayoutState extends State<ScreenLayout> {
         ],
         onTap: navigationTapped,
       ),
+
     );
   }
 

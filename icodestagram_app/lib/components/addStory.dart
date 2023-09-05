@@ -19,7 +19,10 @@ class AddStoryButton extends StatelessWidget {
             width: 80,
             height: 80,
             child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AddStoryScreen()));
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.transparent,
                   elevation: 0,

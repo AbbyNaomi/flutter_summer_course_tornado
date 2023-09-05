@@ -1,9 +1,15 @@
+import 'dart:typed_data';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:icodestagram_app/components/addStory.dart';
 import 'package:icodestagram_app/components/post.dart';
 import 'package:icodestagram_app/components/watchStory.dart';
 import 'package:icodestagram_app/layouts/screen_layout.dart';
+import 'package:image_picker/image_picker.dart';
+
+import '../utils/utils.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,6 +19,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Uint8List? _image;
+  selectImage() async {
+    Uint8List image = await pickImage(ImageSource.gallery);
+    setState(() {
+      _image = image;
+    });
+  }
+
   List<Widget> stories = [
     Padding(padding: EdgeInsets.only(right: 7)),
     AddStoryButton(),
@@ -44,14 +58,39 @@ class _HomeScreenState extends State<HomeScreen> {
       photo: 'assets/photo.png',
     ),
   ];
-// ScreenLayout()
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: CustomScrollView(
+      body: StreamBuilder<Object>(
+        stream: FirebaseFirestore.instance.collection("posts").snapshots(),
+        builder: (context, AsyncSnapshot snapshot){
+          if(snapshot.connectionState == ConnectionState.waiting){
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+
+        return CustomScrollView(
           slivers: <Widget>[
+            SliverAppBar(
+              pinned: true,
+              floating: true,
+              backgroundColor: Colors.black,
+              expandedHeight: 40,
+              flexibleSpace: FlexibleSpaceBar(
+                titlePadding: EdgeInsets.only(left: 10),
+                title: Text(
+                  'iCodegram',
+                  style: TextStyle(
+                    fontSize: 35.5,
+                    fontFamily: 'Lobster',
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xFFFFFFFF),
+                  ),
+                ),
+              ),
+            ),
             SliverList(
                 delegate: SliverChildListDelegate([
               SizedBox(
@@ -76,11 +115,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     return posts[index];
                   }),
             ])),
+
           ],
-        ),
+        );},
       ),
     );
   }
+
 }
 
 // Container(
@@ -90,19 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
 // Row(
 // children: [
 // Padding(padding: EdgeInsets.only(right: 16)),
-// SizedBox(
-// width: 107,
-// height: 32,
-// child: Text(
-// 'iCodegram',
-// style: TextStyle(
-// fontSize: 25.64,
-// fontFamily: 'Lobster',
-// fontWeight: FontWeight.w400,
-// color: Color(0xFFFFFFFF),
-// ),
-// ),
-// ),
+
 // ],
 // ),
 // Padding(padding: EdgeInsets.only(top: 8)),

@@ -22,7 +22,7 @@ void main() async {
         // snapshot.connectionState==ConnectionState.active ?
         if (snapshot.connectionState == ConnectionState.active) {
           if (snapshot.hasData) {
-            return HomeScreen();
+            return ScreenLayout();
           } else if (snapshot.hasError) {
             return Center(
               child: Text('${snapshot.error}'),
