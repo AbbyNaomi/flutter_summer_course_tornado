@@ -5,6 +5,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:icodestagram_app/resources/storage_methods.dart';
 import 'package:uuid/uuid.dart';
 
+import '../models/story_models.dart';
+
 class StoryMethods{
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseStorage _storage = FirebaseStorage.instance;
@@ -35,7 +37,35 @@ class StoryMethods{
     try{
       String storyUrl=
           await StorageMethods().uploudImageToStorage('stories', file, false);
-      String storyId= Uuid().v1();
+      String storyId= const Uuid().v1();
+
+      StoryModel story =StoryModel(
+        storyUrl: storyUrl,
+        uid: uid,
+        storyId:storyId,
+        username: username,
+        profImage: profImage,
+      );
+
+      _firestore.collection('stories').doc(storyId).set(story.toJson());
+      result='success';
+    } catch (e) {
+      result = 0.toString();
+    }
+    return result;
+  }
+  Future<List<StoryModel>> getStories() async{
+    try {
+      final QuerySnapshot storiesSnapshot=
+          await _firestore.collection('stories').get();
+
+      // List<StoryModel> stories = storiesSnapshot.docs
+      // .map((snapshot) => StoryModel.fromSnap(snapshot))
+      // .toList();
+
+      // return stories;
+    }catch(e) {
+      return[];
     }
   }
 }

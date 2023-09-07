@@ -69,10 +69,11 @@ class _AddStoryScreenState extends State<AddStoryScreen> {
                     Row(
                       children: [
                         IconButton(
-                            onPressed:()=> Navigator.pop(context), icon: Icon(Icons.arrow_back)),
+                            onPressed: () => Navigator.pop(context),
+                            icon: Icon(Icons.arrow_back)),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 300,
                     ),
                     GestureDetector(
@@ -80,7 +81,7 @@ class _AddStoryScreenState extends State<AddStoryScreen> {
                       child: Container(
                         alignment: Alignment.center,
                         width: double.infinity,
-                        child: Column(
+                        child: const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
@@ -109,7 +110,7 @@ class _AddStoryScreenState extends State<AddStoryScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 6,
                         ),
                         Stack(
@@ -127,11 +128,13 @@ class _AddStoryScreenState extends State<AddStoryScreen> {
                               ),
                             ),
                             Positioned(
+                              top: 10,
+                              right: 10,
                               child: CircleAvatar(
                                 backgroundColor: Colors.black.withOpacity(0.2),
                                 child: IconButton(
                                   onPressed: () => clearImage(),
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.clear,
                                     color: Color(0XFFE76A01),
                                   ),
@@ -140,10 +143,18 @@ class _AddStoryScreenState extends State<AddStoryScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
-                        // IconButton(onPressed: (), icon: icon)
+                        IconButton(
+                          onPressed: () {
+                            postStory();
+                          },
+                          icon: const Icon(
+                            Icons.check,
+                            color: Colors.orange,
+                          ),
+                        ),
                       ],
                     ),
                   ),
