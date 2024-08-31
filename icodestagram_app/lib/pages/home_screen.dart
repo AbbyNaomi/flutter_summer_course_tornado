@@ -28,9 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<Widget> stories = [
-    Padding(padding: EdgeInsets.only(right: 7)),
+    Padding(padding: EdgeInsets.only(right: 10)),
     AddStoryButton(),
-    Padding(padding: EdgeInsets.only(right: 7)),
+    Padding(padding: EdgeInsets.only(right: 100)),
     WatchStoryButton(hintext: 'Төгөлдөр'),
     Padding(padding: EdgeInsets.only(right: 7)),
     WatchStoryButton(hintext: 'Сарнай'),
@@ -44,18 +44,18 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> posts = [
     Post(
       hintText: '  Төгөлдөр',
-      profile: 'assets/profile.png',
-      photo: 'assets/photo.png',
+      profile: 'assets/images/profile.png',
+      photo: 'assets/images/photo.png',
     ),
     Post(
       hintText: '  Сарнай',
-      profile: 'assets/profile2.png',
-      photo: 'assets/postphoto2.png',
+      profile: 'assets/images/profile2.png',
+      photo: 'assets/images/postphoto2.png',
     ),
     Post(
       hintText: '  Ханхүү',
-      profile: 'assets/profile.png',
-      photo: 'assets/photo.png',
+      profile: 'assets/images/profile.png',
+      photo: 'assets/images/photo.png',
     ),
   ];
 
@@ -123,41 +123,3 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
 }
-
-// Container(
-// height: 15000,
-// child: const Column(
-// children: [
-// Row(
-// children: [
-// Padding(padding: EdgeInsets.only(right: 16)),
-
-// ],
-// ),
-// Padding(padding: EdgeInsets.only(top: 8)),
-// Row(
-// children: [
-// Padding(padding: EdgeInsets.only(right: 16, top: 5)),
-// AddStoryButton(),
-// Padding(padding: EdgeInsets.only(right: 12)),
-// WatchStoryButton(
-// hintext: 'Төгөлдөр',
-// ),
-// Padding(padding: EdgeInsets.only(right: 12)),
-// WatchStoryButton(
-// hintext: 'Сарнай',
-// ),
-// Padding(padding: EdgeInsets.only(right: 12)),
-// WatchStoryButton(
-// hintext: 'Ханхүү',
-// ),
-// ],
-// ),
-// Post(hintText: '  Төгөлдөр', profile: 'assets/profile.png', photo: 'assets/photo.png',),
-// Post(hintText: '  Сарнай', profile: 'assets/profile2.png', photo: 'assets/postphoto2.png',),
-// Post(hintText: '  Ханхүү', profile: 'assets/profile.png', photo: 'assets/photo.png',),
-//
-// ScreenLayout(),
-// ],
-// ),
-// ),

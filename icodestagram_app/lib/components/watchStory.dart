@@ -26,7 +26,7 @@ class WatchStoryButton extends StatelessWidget {
                   padding: EdgeInsets.zero,
                 ),
                 child: ClipOval(
-                  child: Image.asset('assets/profile.png'),
+                  child: Image.asset('assets/images/profile.png'),
                 )
             ),
           ),

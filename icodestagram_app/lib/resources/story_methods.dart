@@ -31,12 +31,12 @@ class StoryMethods{
     required Uint8List file,
     required String username,
     required String profImage,
-}) async {
+  }) async {
     String result= 'Some error occured';
 
     try{
       String storyUrl=
-          await StorageMethods().uploudImageToStorage('stories', file, false);
+      await StorageMethods().uploudImageToStorage('stories', file, false);
       String storyId= const Uuid().v1();
 
       StoryModel story =StoryModel(
@@ -47,7 +47,7 @@ class StoryMethods{
         profImage: profImage,
       );
 
-      _firestore.collection('stories').doc(storyId).set(story.toJson());
+      // _firestore.collection('stories').doc(storyId).set(story.toJson());
       result='success';
     } catch (e) {
       result = 0.toString();
@@ -57,13 +57,13 @@ class StoryMethods{
   Future<List<StoryModel>> getStories() async{
     try {
       final QuerySnapshot storiesSnapshot=
-          await _firestore.collection('stories').get();
+      await _firestore.collection('stories').get();
 
       // List<StoryModel> stories = storiesSnapshot.docs
       // .map((snapshot) => StoryModel.fromSnap(snapshot))
       // .toList();
 
-      // return stories;
+      return [];
     }catch(e) {
       return[];
     }

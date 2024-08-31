@@ -74,7 +74,7 @@ class Post extends StatelessWidget {
                 children: [
                   Padding(padding: EdgeInsets.only(right: 16)),
                   SvgPicture.asset(
-                    "assets/heart.svg",
+                    "assets/images/heart.svg",
                     width: 21,
                     height: 18,
                   ),

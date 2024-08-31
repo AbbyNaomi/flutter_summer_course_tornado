@@ -148,7 +148,6 @@ class _AddStoryScreenState extends State<AddStoryScreen> {
                         ),
                         IconButton(
                           onPressed: () {
-                            postStory();
                           },
                           icon: const Icon(
                             Icons.check,
